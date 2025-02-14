@@ -15,12 +15,12 @@
 	background-color: #f6f2ed;
     padding-right: 20%;
 	margin:0;
-    position: fixed;
+/*     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
 	z-index: 1000;
-    transition: transform 0.3s ease-in-out; 
+    transition: transform 0.3s ease-in-out;  */
 }
 .nav .left img{
 	display: inline-block;
