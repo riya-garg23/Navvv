@@ -33,7 +33,7 @@
 					<li><a href="#">Home</a></li>
 					<li><a href="About.html">About Us</a></li>
 					<div class="serv">
-						<a href="#">Services</a>
+						<a href="#" class="service">Services</a>
 						<div class="services">
 							<div class="section">
 								<div class="sec1 sec">
@@ -63,6 +63,12 @@
 					<li><a href="Contact.html">Contact Us</a></li>
 				</ul>
 			</div>
+			<div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="close-icon">✕</div>
+              </div>
 		</div>
 
 		<div class="first">
@@ -1096,6 +1102,42 @@
 			}
 			lastScrollY = window.scrollY;
 		});
+
+
+		//navbar for mobile
+		const hamburger = document.querySelector('.hamburger');
+const spans = document.querySelectorAll('.hamburger span');
+const closeIcon = document.querySelector('.hamburger .close-icon');
+const navRight = document.querySelector('.nav .right'); 
+const body = document.body;
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navRight.classList.toggle('active');
+    body.classList.toggle('menu-open');
+
+    if (hamburger.classList.contains('active')) {
+        spans.forEach(span => span.style.display = 'none');
+        closeIcon.style.display = 'block';
+    } else {
+        spans.forEach(span => span.style.display = 'block');
+        closeIcon.style.display = 'none';
+    }
+});
+
+// Handle navigation link clicks
+const navLinks = document.querySelectorAll('.nav .right li a'); 
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navRight.classList.remove('active');
+        body.classList.remove('menu-open');
+
+        spans.forEach(span => span.style.display = 'block');
+        closeIcon.style.display = 'none';
+    });
+});
+
 
 	</script>
 </body>

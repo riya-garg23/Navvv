@@ -17,10 +17,43 @@
 				<ul>
 					<li><a href="index.html">Home</a></li>
 					<li><a href="About.html">About Us</a></li>
-					<li><a href="#">Services</a></li>
+                    <div class="serv">
+						<a href="#" class="service">Services</a>
+						<div class="services">
+							<div class="section">
+								<div class="sec1 sec">
+									<h4>SOFTWARE DEVELOPMENT</h4>
+									<li><a href="Consulting.html">Consulting</a></li>
+									<li><a href="WebDev.html">Web Development</a></li>
+									<li><a href="WebAppDev.html">Web App Development</a></li>
+									<li><a href="UIUX.html">UI/UX</a></li>
+								</div>
+								<div class="sec2 sec">
+									<h4>MOBILE APP DEVELOPMENT</h4>
+									<li><a href="Ecommerce.html">E-Commerce App Development</a></li>
+									<li><a href="HybridApp.html">Hybrid App Development</a></li>
+									<li><a href="Android.html">Android App Development</a></li>
+									<li><a href="IOS.html">IOS</a></li>
+								</div>
+								<div class="sec3 sec">
+									<h4>DIGITAL MARKETING</h4>
+									<li><a href="SearchEngine.html">Search Engine Optimization</a></li>
+									<li><a href="PPC.html">Pay Per Click</a></li>
+									<li><a href="SocialMedia.html">Social Media Management</a></li>
+									<li><a href="MailMarketing.html">Mail Marketing</a></li>
+								</div>
+							</div>
+						</div>
+					</div>
 					<li><a href="Contact.html">Contact Us</a></li>
 				</ul>
 			</div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+                <div class="close-icon">✕</div>
+              </div>
 		</div>
         <div class="first">
 <div class="top">
@@ -405,5 +438,43 @@
             </div>
         </div>
     </div>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+  const spans = document.querySelectorAll('.hamburger span');
+  const closeIcon = document.querySelector('.hamburger .close-icon');
+  const navRight = document.querySelector('.nav .right'); // Fixed selector
+  const body = document.body;
+  
+  hamburger.addEventListener('click', () => {
+      // Toggle active classes
+      hamburger.classList.toggle('active');
+      navRight.classList.toggle('active');
+      body.classList.toggle('menu-open');
+  
+      // Toggle visibility of spans and close icon
+      if (hamburger.classList.contains('active')) {
+          spans.forEach(span => span.style.display = 'none');
+          closeIcon.style.display = 'block';
+      } else {
+          spans.forEach(span => span.style.display = 'block');
+          closeIcon.style.display = 'none';
+      }
+  });
+  
+  // Handle navigation link clicks
+  const navLinks = document.querySelectorAll('.nav .right li a'); // Fixed selector
+  navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navRight.classList.remove('active');
+          body.classList.remove('menu-open');
+  
+          // Reset to initial state
+          spans.forEach(span => span.style.display = 'block');
+          closeIcon.style.display = 'none';
+      });
+  });    
+      </script>
 </body>
 </html>

@@ -38,17 +38,106 @@ body{
 .first .right li {
 	list-style: none;
 }
-.first .right li a{
+.first .right li a,.first .serv a{
 	color: black;
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
-    padding: 9px 15px;
     border-radius: 5px;
     transition: all 0.3s ease;
 }
-.first .right li a:hover{
+.first .right li a:hover,.first .right .serv a:hover{
 	color:#356ab4;
+}
+.first .hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.first .hamburger span {
+    display: block;
+    width: 42px;
+    height: 4px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.first .hamburger .menu-icon span {
+    display: block;
+    width: 42px;
+    height: 5px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.first .hamburger .close-icon {
+    display: none;
+    font-size: 28px;
+    color: #333;
+}
+
+.first .hamburger.active .menu-icon {
+    display: none;
+}
+
+.first .hamburger.active .close-icon {
+    display: block;
+}
+/* .first .right .serv{
+	margin-top:9px
+} */
+.first .services {
+    /* opacity: 0; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* position: fixed;
+    top: 60px;
+    left: 50%; */
+    /* transform: translateX(-50%); */
+    border: none;
+    width: 70%;
+    height: fit-content;
+    margin: auto;
+    background-color:black;
+    color: white;
+	position: absolute;
+    right:14%;
+    display: none;
+}
+
+.first .serv:hover + .services,.first .service:hover + .services, .services:hover{
+    display: block;
+}
+
+.first .services .section {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Ensures responsiveness for smaller screens */
+}
+.first .services li{
+    list-style: none;
+    margin:8px 0px;
+}
+.first .services li a {
+    color: #d9d9d9 !important;
+	font-size: 14px !important;
+    font-weight: 600 !important;
+    display: block;
+    text-decoration: none;
+}
+.first .services li a:hover {
+    color: #356ab4 !important;
+}
+.first .services h4{
+    border-bottom: 1px solid gray;
+    padding-bottom: 15px;
+}
+ .first .services .section .sec {
+    width: 26%;
 }
 
 .second{
@@ -60,6 +149,7 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    z-index: -1;
 }
 .second::before {
     content: "";
@@ -475,4 +565,343 @@ z-index: 3;
 	font-size: 1.1rem;
 	color:#666;
 	z-index: 3;
+}
+
+
+
+/* Large devices (laptops/desktops, up to 1200px) */
+@media screen and (max-width: 1200px) {
+    .first .right ul {
+        gap: 5px;
+    }
+    
+    .first .right li a {
+        font-size: 16px;
+    }
+    .first {
+        padding-right: 10%;
+    }
+
+    .third {
+        padding: 60px 40px;
+    }
+
+    .third .right .form-container {
+        padding: 35px 30px;
+    }
+}
+
+/* Medium devices (tablets, up to 992px) */
+@media screen and (max-width: 992px) {
+    .first .services {
+        display: none;
+      }
+    .first {
+        padding-right: 5%;
+        height: auto;
+        padding: 10px 40px;
+        justify-content: space-between;
+    }
+    
+    .first .right {
+        padding: 20px 0;
+    }
+    
+    .first {
+        position: relative;
+        position: fixed;
+        width: 100%;
+    }
+    
+    .first .hamburger {
+        display: block;
+        position: relative;
+        right: 20px;
+    }
+    
+    .first .right {
+        display: none;
+    }
+        .first .left {
+        position: relative;
+        z-index: 1002;  /* Higher than hamburger and menu */
+    }
+    
+    .first .right.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f6f2ed;
+        z-index: 1000;
+        padding-top: 80px;
+    }
+    
+    .first  .right ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        padding: 0;
+    }
+    
+    .first  .right li {
+        width: 100%;
+        text-align: start;
+        padding: 15px 40px;
+        padding-top: 30px;
+        /* border-top: 1px solid rgba(0,0,0,0.1); */
+    }
+
+    .first .right li a {
+        font-size: 20px;
+        display: block;
+        padding: 10px 0;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    .first  {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f6f2ed;
+        z-index: 1000;
+        padding: 10px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+    }
+        
+    .first  .hamburger {
+            display: block;
+        }
+        
+        .first .right {
+            display: none;
+        }
+        
+        .first  .right.active {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #f6f2ed;
+            z-index: 999;
+            padding-top: 120px; /* Increased to account for fixed header */
+        }
+        
+        .first  .right ul {
+            flex-direction: column;
+            width: 100%;
+            gap: 0;
+            padding: 0;
+        }
+        
+        .first .right li {
+            width: 100%;
+            text-align: start;
+            padding: 15px 40px;
+            /* border-top: 1px solid rgba(0,0,0,0.1); */
+        }
+    
+        .first .right li a {
+            font-size: 20px;
+            display: block;
+            padding: 10px 0;
+        }
+    
+
+    .second .content h1 {
+        font-size: 50px;
+        line-height: 60px;
+    }
+
+    .third {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    .third .left,
+    .third .right {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .third .right .form-container {
+        width: 100%;
+    }
+
+    .fourth {
+        height: 1400px;
+    }
+    .fourth::before {
+        height: 1400px;
+    }
+
+    .fourth .bottom {
+        height: auto;
+    }
+    .fourth .top{
+        top:2%;
+    }
+    .fourth .footer-column {
+        flex: 0 0 calc(50% - 20px);
+        margin-bottom: 30px;
+    }
+}
+
+/* Small devices (landscape phones, up to 768px) */
+@media screen and (max-width: 768px) {
+    .first {
+        padding: 10px 20px;
+    }
+
+    .first .right {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #f6f2ed;
+        z-index: 999;
+        padding-top: 80px;
+        text-align: center;
+    }
+
+    .first .right.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .first .right ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        gap: 15px;
+    }
+
+    .first .right li {
+        width: 100%;
+        padding: 15px 0;
+    }
+
+    .first .hamburger {
+        display: block;
+        position: relative;
+        z-index: 1001;
+    }
+
+    .first .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .first .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .first .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    .second .content h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .second .content span {
+        font-size: 24px;
+    }
+
+    .third .left h1 {
+        font-size: 32px;
+        line-height: 45px;
+    }
+
+    .third .left .details {
+        grid-template-columns: 100%;
+    }
+
+    .fourth .footer-column {
+        flex: 0 0 100%;
+        margin-bottom: 30px;
+    }
+
+    .fourth .newsletter {
+		width:60%;
+        gap: 10px;
+    }
+	.fourth .newsletter input{
+        width:60% !important;
+    }
+    
+    .fourth .newsletter button {
+        max-width: 50%;
+    }
+
+    .fourth .marquee-item span {
+        font-size: 28px;
+        margin-right: 40px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .first .right ul {
+        gap: 4px;
+    }
+    
+    .first .right li {
+        padding: 5px 10px;
+    }
+    
+    .first .right li a {
+        font-size: 16px;
+    }
+
+    .second {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .second .content h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .third .left h1 {
+        font-size: 28px;
+        line-height: 38px;
+    }
+
+    .third .right .form-container {
+        padding: 25px 20px;
+    }
+
+    .third .right .form-container button {
+        width: 100%;
+    }
+
+    .fourth .footer {
+        padding: 1rem;
+    }
+
+    .fourth .footer-bottom {
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+
+    .fourth .marquee-item span {
+        font-size: 24px;
+        margin-right: 30px;
+    }
 }

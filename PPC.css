@@ -35,7 +35,7 @@
 	margin-bottom: 0;
 	padding: 9px 15px;
 }
-.nav .right li a{
+.nav .right li a,.nav .serv a{
 	color: black;
     text-decoration: none;
     font-size: 18px;
@@ -43,8 +43,60 @@
     border-radius: 5px;
     transition: all 0.3s ease;
 }
-.nav .right li a:hover{
+.nav .right li a:hover,.nav .right .serv a:hover{
 	color:#356ab4;
+}
+.nav .right .serv{
+	margin-top:9px
+}
+.nav .services {
+    /* opacity: 0; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* position: fixed;
+    top: 60px;
+    left: 50%; */
+    /* transform: translateX(-50%); */
+    border: none;
+    width: 70%;
+    height: fit-content;
+    margin: auto;
+    background-color:black;
+    color: white;
+	position: absolute;
+    right:14%;
+    display: none;
+}
+
+.nav .serv:hover + .services,.nav .service:hover + .services, .services:hover{
+    display: block;
+}
+
+.nav .services .section {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Ensures responsiveness for smaller screens */
+}
+.nav .services li{
+    list-style: none;
+    margin:8px 0px;
+}
+.nav .services li a {
+    color: #d9d9d9 !important;
+	font-size: 14px !important;
+    font-weight: 600 !important;
+    display: block;
+    text-decoration: none;
+}
+.nav .services li a:hover {
+    color: #356ab4 !important;
+}
+.nav .services h4{
+    border-bottom: 1px solid gray;
+    padding-bottom: 15px;
+}
+ .nav .services .section .sec {
+    width: 26%;
 }
 .first{
     padding:40px 120px;
@@ -481,7 +533,9 @@ z-index: 3;
 
 /* Medium devices (tablets, 768px to 991px) */
 @media (max-width: 991px) {
-    /* Previous styles remain the same */
+    .nav .services {
+        display: none;
+      }
     .nav {
         padding-right: 5%;
         height: auto;

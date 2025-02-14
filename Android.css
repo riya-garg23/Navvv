@@ -35,7 +35,7 @@
 	margin-bottom: 0;
 	padding: 9px 15px;
 }
-.nav .right li a{
+.nav .right li a,.nav .serv a{
 	color: black;
     text-decoration: none;
     font-size: 18px;
@@ -43,8 +43,98 @@
     border-radius: 5px;
     transition: all 0.3s ease;
 }
-.nav .right li a:hover{
+.nav .right li a:hover,.nav .right .serv a:hover{
 	color:#356ab4;
+}
+.nav .hamburger {
+    display: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.nav .hamburger span {
+    display: block;
+    width: 42px;
+    height: 4px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.nav .hamburger .menu-icon span {
+    display: block;
+    width: 42px;
+    height: 5px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+.nav .hamburger .close-icon {
+    display: none;
+    font-size: 28px;
+    color: #333;
+}
+
+.nav .hamburger.active .menu-icon {
+    display: none;
+}
+
+.nav .hamburger.active .close-icon {
+    display: block;
+}
+.nav .right .serv{
+	margin-top:9px
+}
+.nav .services {
+    /* opacity: 0; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* position: fixed;
+    top: 60px;
+    left: 50%; */
+    /* transform: translateX(-50%); */
+    border: none;
+    width: 70%;
+    height: fit-content;
+    margin: auto;
+    background-color:black;
+    color: white;
+	position: absolute;
+    right:14%;
+    display: none;
+}
+
+.nav .serv:hover + .services,.nav .service:hover + .services, .services:hover{
+    display: block;
+}
+
+.nav .services .section {
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Ensures responsiveness for smaller screens */
+}
+.nav .services li{
+    list-style: none;
+    margin:8px 0px;
+}
+.nav .services li a {
+    color: #d9d9d9 !important;
+	font-size: 14px !important;
+    font-weight: 600 !important;
+    display: block;
+    text-decoration: none;
+}
+.nav .services li a:hover {
+    color: #356ab4 !important;
+}
+.nav .services h4{
+    border-bottom: 1px solid gray;
+    padding-bottom: 15px;
+}
+ .nav .services .section .sec {
+    width: 26%;
 }
 .first{
     padding:40px 120px;
@@ -437,10 +527,16 @@ z-index: 3;
 
 /* Large devices (desktops, 992px to 1199px) */
 @media (max-width: 1199px) {
+    .nav .right ul {
+        gap: 5px;
+    }
+    
+    .nav .right li a {
+        font-size: 16px;
+    }
     .nav {
         padding-right: 10%;
     }
-    
     .first {
         padding: 40px 80px;
     }
@@ -467,15 +563,131 @@ z-index: 3;
 
 /* Medium devices (tablets, 768px to 991px) */
 @media (max-width: 991px) {
+    .nav .services {
+        display: none;
+      }
     .nav {
         padding-right: 5%;
         height: auto;
-        padding: 10px 20px;
+        padding: 10px 40px;
+        justify-content: space-between;
     }
     
     .nav .right {
         padding: 20px 0;
     }
+    
+    .nav {
+        position: relative;
+        position: fixed;
+        width: 100%;
+    }
+    
+    .nav .hamburger {
+        display: block;
+        position: relative;
+        right: 20px;
+    }
+    
+    .nav .right {
+        display: none;
+    }
+       /* Add these new rules */
+       .nav .left {
+        position: relative;
+        z-index: 1002;  /* Higher than hamburger and menu */
+    }
+    
+    .nav .right.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: #f6f2ed;
+        z-index: 1000;
+        padding-top: 80px;
+    }
+    
+    .nav .right ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        padding: 0;
+    }
+    
+    .nav .right li {
+        width: 100%;
+        text-align: start;
+        padding: 15px 40px;
+        padding-top: 30px;
+        /* border-top: 1px solid rgba(0,0,0,0.1); */
+    }
+
+    .nav .right li a {
+        font-size: 20px;
+        display: block;
+        padding: 10px 0;
+    }
+
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #f6f2ed;
+        z-index: 1000;
+        padding: 10px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: auto;
+    }
+        
+        .nav .hamburger {
+            display: block;
+        }
+        
+        .nav .right {
+            display: none;
+        }
+        
+        .nav .right.active {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: #f6f2ed;
+            z-index: 999;
+            padding-top: 120px; /* Increased to account for fixed header */
+        }
+        
+        .nav .right ul {
+            flex-direction: column;
+            width: 100%;
+            gap: 0;
+            padding: 0;
+        }
+        
+        .nav .right li {
+            width: 100%;
+            text-align: start;
+            padding: 15px 40px;
+            /* border-top: 1px solid rgba(0,0,0,0.1); */
+        }
+    
+        .nav .right li a {
+            font-size: 20px;
+            display: block;
+            padding: 10px 0;
+        }
     
     .first {
         padding: 30px 40px;
@@ -516,7 +728,7 @@ z-index: 3;
 /* Small devices (landscape phones, 576px to 767px) */
 @media (max-width: 767px) {
     .nav {
-        flex-direction: column;
+        /* flex-direction: column; */
         align-items: center;
         text-align: center;
     }
@@ -524,6 +736,26 @@ z-index: 3;
     .nav .right ul {
         flex-wrap: wrap;
         justify-content: center;
+    }
+    .nav {
+        padding: 10px;
+    }
+    
+    .nav .left img {
+        padding: 15px 0;
+        width: 120px;
+    }
+    
+    .nav .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .nav .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
     }
     
     .first {
