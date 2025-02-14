@@ -19,8 +19,14 @@ body{
 	background-color: #f6f2ed;
     padding-right: 20%;
 	margin:0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+	z-index: 1000;
+    transition: transform 0.3s ease-in-out; 
 }
-.first .left img{
+ .first .left img{
 	display: inline-block;
     max-width: 100%;
     width: 140px;
@@ -30,15 +36,20 @@ body{
 .first .right{
 	padding: 42px 0;
 }
-.first .right ul {
+ .first .right ul {
 	display: inline-flex;
 	gap: 8px;
 }
 
 .first .right li {
 	list-style: none;
+    margin-bottom: 0;
+	padding: 9px 15px;
 }
-.first .right li a,.first .serv a{
+.first .right .serv{
+    margin-top:8px;
+}
+ .first .right li a,.first .serv a{
 	color: black;
     text-decoration: none;
     font-size: 18px;
@@ -49,7 +60,7 @@ body{
 .first .right li a:hover,.first .right .serv a:hover{
 	color:#356ab4;
 }
-.first .hamburger {
+ .first .hamburger {
     display: none;
     cursor: pointer;
     padding: 10px;
@@ -64,8 +75,7 @@ body{
     margin: 5px 0;
     transition: all 0.3s ease;
 }
-
-.first .hamburger .menu-icon span {
+ .first .hamburger .menu-icon span {
     display: block;
     width: 42px;
     height: 5px;
@@ -79,18 +89,17 @@ body{
     font-size: 28px;
     color: #333;
 }
-
-.first .hamburger.active .menu-icon {
+ .first .hamburger.active .menu-icon {
     display: none;
 }
 
-.first .hamburger.active .close-icon {
+.contactmain .first .hamburger.active .close-icon {
     display: block;
 }
 /* .first .right .serv{
 	margin-top:9px
 } */
-.first .services {
+ .first .services {
     /* opacity: 0; */
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     /* position: fixed;
@@ -107,40 +116,39 @@ body{
     right:14%;
     display: none;
 }
-
-.first .serv:hover + .services,.first .service:hover + .services, .services:hover{
+ .first .serv:hover + .services, .first .service:hover + .services, .services:hover{
     display: block;
 }
 
-.first .services .section {
+.contactmain .first .services .section {
     padding: 20px 30px;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap; /* Ensures responsiveness for smaller screens */
 }
-.first .services li{
+.contactmain .first .services li{
     list-style: none;
     margin:8px 0px;
 }
-.first .services li a {
+.contactmain .first .services li a {
     color: #d9d9d9 !important;
 	font-size: 14px !important;
     font-weight: 600 !important;
     display: block;
     text-decoration: none;
 }
-.first .services li a:hover {
+.contactmain .first .services li a:hover {
     color: #356ab4 !important;
 }
-.first .services h4{
+.contactmain .first .services h4{
     border-bottom: 1px solid gray;
     padding-bottom: 15px;
 }
- .first .services .section .sec {
+.contactmain .first .services .section .sec {
     width: 26%;
 }
 
-.second{
+.contactmain .second{
     position: relative;
     padding-top: 157px;
     padding-bottom: 161px;
@@ -151,7 +159,7 @@ body{
     background-attachment: fixed;
     z-index: -1;
 }
-.second::before {
+.contactmain .second::before {
     content: "";
     top: 0;
     right: 0;
@@ -593,41 +601,40 @@ z-index: 3;
 
 /* Medium devices (tablets, up to 992px) */
 @media screen and (max-width: 992px) {
-    .first .services {
+    .contactmain .first .services {
         display: none;
       }
-    .first {
+      .contactmain .first {
         padding-right: 5%;
         height: auto;
         padding: 10px 40px;
         justify-content: space-between;
     }
     
-    .first .right {
+    .contactmain .first .right {
         padding: 20px 0;
     }
     
-    .first {
+    .contactmain .first {
         position: relative;
         position: fixed;
         width: 100%;
     }
     
-    .first .hamburger {
+    .contactmain .first .hamburger {
         display: block;
         position: relative;
         right: 20px;
     }
     
-    .first .right {
+    .contactmain .first .right {
         display: none;
     }
-        .first .left {
+    .contactmain .first .left {
         position: relative;
         z-index: 1002;  /* Higher than hamburger and menu */
     }
-    
-    .first .right.active {
+   .contactmain .first .right.active {
         display: block;
         position: fixed;
         top: 0;
@@ -639,22 +646,26 @@ z-index: 3;
         padding-top: 80px;
     }
     
-    .first  .right ul {
+    .contactmain .first  .right ul {
         flex-direction: column;
         width: 100%;
         gap: 0;
         padding: 0;
     }
     
-    .first  .right li {
+    .contactmain .first  .right li {
         width: 100%;
         text-align: start;
         padding: 15px 40px;
         padding-top: 30px;
-        /* border-top: 1px solid rgba(0,0,0,0.1); */
     }
-
-    .first .right li a {
+    .contactmain .first .serv{
+        width: 100%;
+        text-align: start;
+        padding: 15px 40px;
+        padding-top: 10px;
+    }
+    .contactmain .first .right li a,.contactmain .first .service {
         font-size: 20px;
         display: block;
         padding: 10px 0;
@@ -664,7 +675,7 @@ z-index: 3;
         overflow: hidden;
     }
 
-    .first  {
+    .contactmain .first  {
         position: fixed;
         top: 0;
         left: 0;
@@ -678,15 +689,15 @@ z-index: 3;
         height: auto;
     }
         
-    .first  .hamburger {
+    .contactmain .first  .hamburger {
             display: block;
         }
         
-        .first .right {
+        .contactmain .first .right {
             display: none;
         }
         
-        .first  .right.active {
+        .contactmain .first  .right.active {
             display: block;
             position: fixed;
             top: 0;
@@ -698,21 +709,21 @@ z-index: 3;
             padding-top: 120px; /* Increased to account for fixed header */
         }
         
-        .first  .right ul {
+        .contactmain .first  .right ul {
             flex-direction: column;
             width: 100%;
             gap: 0;
             padding: 0;
         }
         
-        .first .right li {
+        .contactmain .first .right li {
             width: 100%;
             text-align: start;
             padding: 15px 40px;
             /* border-top: 1px solid rgba(0,0,0,0.1); */
         }
     
-        .first .right li a {
+        .contactmain .first .right li a {
             font-size: 20px;
             display: block;
             padding: 10px 0;

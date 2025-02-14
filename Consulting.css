@@ -14,6 +14,12 @@
 	background-color: #f6f2ed;
     padding-right: 20%;
 	margin:0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+	z-index: 1000;
+    transition: transform 0.3s ease-in-out; 
 }
 .nav .left img{
 	display: inline-block;
@@ -610,8 +616,13 @@ z-index: 3;
         padding-top: 30px;
         /* border-top: 1px solid rgba(0,0,0,0.1); */
     }
-
-    .nav .right li a {
+   .nav .serv{
+        width: 100%;
+        text-align: start;
+        /* padding: 15px 40px;
+        padding-top: 10px; */
+    }
+    .nav .right li a, .nav .service {
         font-size: 20px;
         display: block;
         padding: 10px 0;
@@ -784,7 +795,6 @@ z-index: 3;
    }
 }
 
-/* Extra small devices (phones, less than 576px) */
 @media (max-width: 575px) {
     .nav .right ul {
         gap: 4px;

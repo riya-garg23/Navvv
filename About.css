@@ -18,6 +18,12 @@ body{
 	background-color: #f6f2ed;
     padding-right: 20%;
 	margin:0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+	z-index: 1000;
+    transition: transform 0.3s ease-in-out; 
 }
 .first .left img{
 	display: inline-block;
@@ -194,7 +200,6 @@ body{
 
 .third{
     height:auto;
-    border:2px solid black;
 }
 .third .top{
     display:flex;
@@ -1225,8 +1230,13 @@ width:20%;
         padding-top: 30px;
         /* border-top: 1px solid rgba(0,0,0,0.1); */
     }
-
-    .first .right li a {
+     .first .serv{
+        width: 100%;
+        text-align: start;
+        /* padding: 15px 40px; */
+        /* padding-top: 10px; */
+    }
+    .first .right li a, .contactmain .first .service{
         font-size: 20px;
         display: block;
         padding: 10px 0;
